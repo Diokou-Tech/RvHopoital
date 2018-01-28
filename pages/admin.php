@@ -15,15 +15,14 @@
     </nav>
   <button>  <a href="../index.php">Acceuil</a></button>
     <main>
-        <h1>mode administrateur</h1>
     <form action="pages/traitement.php" method="post" id="form">    
+        <h2>Compte administrateur</h2>
+        <p><small>Réservé uniquement aux administrateurs</small></p>
         <p>
-        <label for="login">login</label>
-                <input type="text" name="login" id="login">
+                <input type="text" name="login" id="login" placeholder='votre login'>
         </p>
         <p>
-        <label for="login">Mot de passe</label>
-                <input type="text" name="mopasse" id="mopasse">
+                <input type="text" name="mopasse" id="mopasse" placeholder="votre mot de passe">
         </p>
         <p>
             <button type="submit">se connecter &rarr;</button>
@@ -41,9 +40,8 @@
                 background-color:teal;
                 
             }
-            h1{
+            h2{
                 color:teal;
-                text-decoration:underline;
                 letter-spacing:2px;
             }
             p{
@@ -51,16 +49,18 @@
                 justify-content:center;
                 align-items:center;
             }
+            p small{
+                color:red;
+            }
             form{
                 box-shadow:2px 2px 2px gray;
                 padding:5px;
             }
-            form label{
-                width:120px;
-                margin-right:2px;
-            }
             button a{
                 text-decoration:none;
             }
-    </style>                box-shadow:2px 2px 2px gray;
+            button{
+                margin:5px;
+            }
+    </style>                
 </html>

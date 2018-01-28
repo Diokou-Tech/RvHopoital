@@ -11,7 +11,7 @@ header{
     margin:0;
     padding:0;
 }
-nav{    
+nav{        
     display: flex;
     padding: 10px;
     justify-content: space-around;
@@ -104,6 +104,12 @@ footer{
     width: 100%;
     bottom: 0;
 }
+form input[type="radio"]{
+    font-size: 18px;
+    width: 100px;
+    margin-left: 10px;
+    appearance: none;
+}
 footer h4{
     color:white;
     padding:5px;
@@ -149,7 +155,7 @@ footer a{
     text-align: center;
     margin: 0 auto;
 }
-     form p input{
+     form p input[type="text"]{
     height: 30px;
     width: 200px;
     background: transparent;
@@ -158,7 +164,7 @@ footer a{
     border:none;
     border-bottom:2px solid teal;
 }
-.form form p input::placeholder{
+.form form p input[type="text"]::placeholder{
     position: relative;
     top: -15px;
 }
@@ -209,6 +215,17 @@ nav .mob{
     align-items: flex-start;
     flex-direction: column;
     display: none;
+}
+button a{
+    text-decoration:none;
+    color:white;
+}
+button{
+    margin:5px;
+    appearance:none;
+    background-color:teal;
+    color:white;
+    padding:5px;
 }
 .alert{
     position: absolute;

@@ -51,6 +51,8 @@ $title='Sa_Hopital';
         <div class="form">
             <h2>Authentification</h2>
             <form action="pages/traitement.php" method="post" id="form">
+            <label for="medecin">Secretaire<input type="radio" name="profil" id="" value="secretaire" style="width:100px;margin:4px;"></label>
+            <br><label for="medecin">Medecin <input type="radio" name="profil" id="" value="medecin" style="width:100px;"></label>
                 <p>
                 <input type="text" name="login" id="login"  autofocus placeholder="votre login"
                      pattern="[a-z]{1,8}" minlength="4"  maxlength="10" title="uniquement des caractères alphabétiques max 6 caractères">
