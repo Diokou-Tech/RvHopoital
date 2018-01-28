@@ -32,8 +32,8 @@ class Manager{
         public function setDB(PDO $db){
         $this->_db=$db;           
         }
-        public static function redir(){
-            header('location:../index.php');
+        public static function redir(int $val){
+            header('location:../index.php?error='.$val);
         }
         public function normalize($var){
             $var=trim($var);
