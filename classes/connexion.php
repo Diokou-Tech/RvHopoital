@@ -2,18 +2,21 @@
 $user='zola';
 $pass='1996diokou';
 function connexion($u,$p){
-    TRY
+    TRY 
     {
-        $conn = new PDO('mysql:host=localhost;dbname=rvhopital',$u,$p);
+        $connect = new PDO('mysql:host=localhost;dbname=rvhopital',$u,$p);
+        $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     Catch(PDOException $e)
     {
         echo 'erreur '.$e->getMessage();
         exit();
     }
-    return $conn;
+    return $connect;
 }
-$c=connexion($user,$pass);
+/* $conn=connexion($user,$pass);
+$data=$conn->query('select * from service where id_service="se01"')->fetchAll();
+var_dump($data); */
 
 
 

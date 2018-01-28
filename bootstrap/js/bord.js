@@ -20,7 +20,6 @@ $(document).ready(function(){
                 ('.alert').css('background-color','teal');
                 ('.alert').text('rendez-vous ajouté avec succès !');
             }
-            e.preventDefault();
     })
     $('#table').DataTable( {
     language: {
