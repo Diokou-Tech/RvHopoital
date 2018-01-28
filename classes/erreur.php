@@ -1,8 +1,8 @@
 <?php
 
 class Erreur{
-    public $error=nill;
-    public function construct($e){
+    public $error=null;
+    public function __construct($e){
         $this->error=$e;
     } 
     public function getMessage(){
