@@ -3,13 +3,14 @@ require('../classes/secretaire.php');
     session_start();
     Manager::verif_session();
     $sec = new Manager($conn);
+    $aujourdhui = date('Y-m-d'); 
     $login=$_SESSION['login'];
     if(!empty($_POST)){
-        $med=$_POST['medecin'];
-        $patient=$_POST['patient'];
-        $date=$_POST['daterv'];
-        $heure=$_POST['heure'];
-        $motif=$_POST['motif'];
+        $med=manager::normalize($_POST['medecin']);
+        $patient=manager::normalize($_POST['patient']);
+        $date=manager::normalize($_POST['daterv']);
+        $heure=manager::normalize($_POST['heure']);
+        $motif=manager::normalize($_POST['motif']);
 
     }
 ?>
@@ -83,10 +84,10 @@ require('../classes/secretaire.php');
                                     <td>suivi du traitement</td>
                                     <td>non effectué</td>
                                     <td style="border:none">
-                                    <a href="#"><i class="material-icons">check</i></a>
+                                    <a href="?valid=emp001"><i class="material-icons">check</i></a>
                                     </td>
                                     <td style="border:none">
-                                    <a href="#"><i class="material-icons">edit</i></a>
+                                    <a href="?supp=emp001"><i class="material-icons">delete</i></a>
                                     </td>
                                 </tr>
                             </tbody>

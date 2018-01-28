@@ -4,9 +4,9 @@ if(empty($_POST)){
     Manager::redir(0);
 }
 else{
-    $profil=$_POST['profil'];
-    $motpasse=$_POST['pass'];
-    $login=$_POST['login'];
+    $profil=Manager::normalize($_POST['profil']);
+    $motpasse=Manager::normalize($_POST['pass']);
+    $login=Manager::normalize($_POST['login']);
 }
     $db=connexion('zola','1996diokou');
     if ($profil=='secretaire'){

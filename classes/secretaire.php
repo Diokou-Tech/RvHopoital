@@ -56,11 +56,37 @@ class Manager{
                 self::redir(1);
             }
         }
-        public function affichepat(string $id){
+        public function affichepat(string $id)
+        {
             $tab=self::getpatient($id);
-            foreach($tab as $val){
-                echo "<li> $val </li>";
+            foreach($tab as $key => $val){
+                if($key !='matricule')
+                echo "<li> <strong>$key :</strong> $val </li>";
             }
+        }
+        public function getsec($id)
+        {
+            $q = $this->_db->query('select * from secretaire where identifiant="'.$id.'"');
+            $data=$q->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+        public function getmed($id)
+        {
+            $q = $this->_db->query('select * from medecin where identifiant="'.$id.'"');
+            $data=$q->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+        public function gettotal($login)
+        {
+            $q = $this->_db->query('select * from rendezvous  where identifiant="'.$login.'" and date_rv="'.$login.'"');
+            $data=$q->rowCount();
+            return $data;
+        }
+        public function verif_doublon($date,$heure)
+        {
+            $q = $this->_db->query('select * from rendezvous  where date_rv="'.$date.'" and heure="'.$heure.'"');
+            $data=$q->rowCount();
+            return $data;
         }
 }
 

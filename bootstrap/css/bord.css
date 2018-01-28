@@ -52,7 +52,7 @@
     }
     .row>div{
         box-shadow:2px 2px 4px gray;
-        min-height: 400px;
+        height: 100vh;
     }
     .cible,.fermer{
         cursor: pointer;
@@ -67,6 +67,9 @@
         thead tr{
     background-color:teal;
     color: white;            
+        }
+        td>.material-icons{
+            color: teal;
         }
         .alert{
             display: block;

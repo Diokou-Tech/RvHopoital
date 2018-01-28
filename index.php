@@ -41,7 +41,7 @@ $title='Sa_Hopital';
             
             </nav>
         </header>
-        <main>
+        <main style="opacity:0.5">
         <div class="col">
         <img src="img/medecine.svg" width="400px" alt="">
         </div>
@@ -97,6 +97,7 @@ $title='Sa_Hopital';
         if(touche==' '){
             formulaire();
         } 
+        
     })
   </script>
 </body>
