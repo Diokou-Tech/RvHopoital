@@ -65,5 +65,8 @@ $title='Foire aux Questions';
         <script src="../bootstrap/js/popper.js"></script>
         <script src="../bootstrap/js/jquery-3.js"></script>
   <script src="../bootstrap/js/main.js"></script>  
+  <script>
+      $('.form').hide();
+  </script>
 </body>
 </html>

@@ -68,7 +68,7 @@ $title='Sa_Hopital';
                 <small class="btnclose"><i class="material-icons left">close</i>fermer</small>
                 </p>
             </form>
-            <small>
+            <small class="alert1">
             <?php
                 if(isset($_GET['error'])){
                     $e=$_GET['error'];

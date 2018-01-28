@@ -1,5 +1,13 @@
 <?php
-
+require('../classes/secretaire.php');   
+    session_start();
+    $login=$_SESSION['login'];
+    if(!empty($_POST)){
+        $med=$_POST['medecin'];
+        $patient=$_POST['patient'];
+        $patient=$_POST['patient'];
+        $patient=$_POST['patient'];
+    }
 ?>
     <!DOCTYPE html>
 <html lang="fr">
@@ -114,12 +122,12 @@
             <form action="traitement.php" method="post" id="ajout">
                 <h4>Ajout d'un rendez-vous</h4>
                 <p>
-                    <label for="patient">patient</label>
-                    <input type="text" name="patient" pattern="[a-z0-9]{6}" id="pat">
-                </p>
-                <p>
                     <label for="medecin">medecin</label>
                     <input type="text" name="medecin" pattern="[a-z0-9]{6}" id="med">
+                </p>
+                <p>
+                    <label for="patient">patient</label>
+                    <input type="text" name="patient" pattern="[a-z0-9]{6}" id="pat">
                 </p>
                 <p>
                     <label for="Date">Date</label>

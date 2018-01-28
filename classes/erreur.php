@@ -7,7 +7,7 @@ class Erreur{
     public function getMessage(){
         $chaine=null;
         switch($this->error){
-            case 0: $chaine = "veuilez-vous connecter";
+            case 0: $chaine="veuilez-vous connecter";
             case 1: $chaine="identifiants incorrects";
         }
         echo "$chaine";
