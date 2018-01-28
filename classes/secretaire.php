@@ -31,18 +31,12 @@ class Manager{
             return $data;
         }
         public static function ajout_rv(){
-           
+           echo "zola is  back static";
         }
         public function setDB(PDO $db){
         $this->_db=$db;           
         }
 }
-$data=$zola->getpatient('pat004');
-echo $zola->is_valid_sec('emp001','1996diokou');
-echo $zola->is_valid_med('med001','1996diokou');
-echo "<pre>";
-var_dump($data);
-echo "</pre>";
 
 Manager::ajout_rv();
 ?>
