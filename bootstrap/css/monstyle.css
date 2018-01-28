@@ -216,17 +216,6 @@ nav .mob{
     flex-direction: column;
     display: none;
 }
-button a{
-    text-decoration:none;
-    color:white;
-}
-button{
-    margin:5px;
-    appearance:none;
-    background-color:teal;
-    color:white;
-    padding:5px;
-}
 .alert{
     position: absolute;
     display: block;
@@ -237,6 +226,7 @@ button{
     background-color:rgb(235, 79, 79);
     z-index: 2;
     margin: 10px;
+    color:blue;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     bottom: 50%;
