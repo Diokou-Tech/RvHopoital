@@ -25,17 +25,6 @@
   <script src="../bootstrap/js/main.js"></script>  
 </body>
     <style>     
-                button a{
-                text-decoration:none;
-                color:white;
-            }
-            button{
-                margin:5px;
-                appearance:none;
-                background-color:teal;
-                color:white;
-                padding:5px;
-            }
             hr{
                 border:2px solid teal;
                 margin:0 auto;

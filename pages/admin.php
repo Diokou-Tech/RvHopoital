@@ -56,11 +56,6 @@
                 box-shadow:2px 2px 2px gray;
                 padding:5px;
             }
-            button a{
-                text-decoration:none;
-            }
-            button{
-                margin:5px;
-            }
+            
     </style>                
 </html>
