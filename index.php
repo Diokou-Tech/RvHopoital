@@ -1,4 +1,5 @@
 <?php
+require('classes/erreur.php');
 $title='Sa_Hopital';
 ?>
 <!DOCTYPE html>
@@ -67,9 +68,19 @@ $title='Sa_Hopital';
                 <small class="btnclose"><i class="material-icons left">close</i>fermer</small>
                 </p>
             </form>
+            <small>
+            <?php
+                if(isset($_GET['error'])){
+                    $e=$_GET['error'];
+                    if(isset($e)){
+                        $r= new Erreur($e);
+                        $r->getMessage();
+                    }
+                }
+            ?>  
+            </small>
         </div>
         <div class="alert">
-            
         </div>
         <footer>
             <h4>Propulsé par &copy; Diokou-Tech</h4>
