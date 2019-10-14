@@ -8,7 +8,7 @@ $title='Sa_Hopital';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php if(!empty($title)){echo $title;}else {echo 'Gestion Rendez-vous';} ?></title>
-    <link rel="icon" type="image/png" href="favicon.png" /> 
+    <link rel="icon" type="image/png" href="img/favicon.png" /> 
     <link rel="stylesheet" href="bootstrap/css/monstyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -42,7 +42,7 @@ $title='Sa_Hopital';
         </header>
         <main>
         <div class="col">
-        <img src="medecine.svg" width="400px" alt="">
+        <img src="img/medecine.svg" width="400px" alt="">
         </div>
         <div class="col1">
         Plateforme de Gestion de Rendez-vous &rarr;
@@ -72,6 +72,6 @@ $title='Sa_Hopital';
         </footer>
         <script src="bootstrap/js/popper.js"></script>
         <script src="bootstrap/js/jquery-3.js"></script>
-  <script src="main.js"></script>  
+  <script src="bootstrap/js/main.js"></script>  
 </body>
 </html>

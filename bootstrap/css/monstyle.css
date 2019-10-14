@@ -93,8 +93,6 @@ main>div{
 main .col1{
     font-size: 50px;
     color:  #20bd88;
-    animation: rouler 3s infinite alternate-reverse;
-    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 footer{
@@ -171,10 +169,6 @@ form button:hover{
     display: block;
     width: 100%;
     text-align: right;
-}
-img,.col{
-    animation: rouler 5s infinite alternate-reverse;
-    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 @-webkit-keyframes rouler{
     from{opacity:0.5;}
