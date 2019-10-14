@@ -21,8 +21,8 @@ $title='Sa_Hopital';
                 <i class="material-icons mob" style='color:white'>menu</i>
                 <ul>
                     <li><a href="index.php"><i class="material-icons left">home</i>Accueil</a></li>
-                    <li><a href="guide.php"><i class="material-icons left">mode_edit</i>Guide d'utilisation</a></li>
-                    <li><a href="faq.php"><i class="material-icons left">flag</i>FAQ</a></li>
+                    <li><a href="pages/guide.php"><i class="material-icons left">mode_edit</i>Guide d'utilisation</a></li>
+                    <li><a href="pages/faq.php"><i class="material-icons left">flag</i>FAQ</a></li>
                 </ul>
                 <button>
                 &rarr; se connecter
@@ -50,7 +50,7 @@ $title='Sa_Hopital';
         </main>
         <div class="form">
             <h2>Authentification</h2>
-            <form action="autentic.php" method="post" id="form">
+            <form action="traitement.php" method="post" id="form">
                 <p>
                 <input type="text" name="login" id="login"  autofocus placeholder="votre login"
                      pattern="[a-z]{1,8}" minlength="4"  maxlength="10" title="uniquement des caractères alphabétiques max 6 caractères">
@@ -69,6 +69,9 @@ $title='Sa_Hopital';
         <div class="alert"></div>
         <footer>
             <h4>Propulsé par &copy; Diokou-Tech</h4>
+            <div class="admin">
+                <button>Mode administrateur</button>
+            </div>
         </footer>
         <script src="bootstrap/js/popper.js"></script>
         <script src="bootstrap/js/jquery-3.js"></script>

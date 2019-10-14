@@ -11,6 +11,7 @@ header{
     margin:0;
     padding:0;
 }
+
 nav{    
     display: flex;
     padding: 10px;
@@ -96,17 +97,30 @@ main .col1{
 }
 
 footer{
-    background-color: teal;
-    padding:10px;
-    border-radius: 50px;
-    height: 20px;    
-    position: absolute;
-    text-align: center;
     border-top:2px solid greenyellow;
+    background-color: teal;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 footer h4{
-    color: white;
-    margin: 0;
+    color:white;
+    padding:5px;
+    border-radius: 50px;
+    height: 20px; 
+    text-align: center;
+    margin: 5px;
+}
+footer button{
+    margin: 5px;
+    border:none;
+    color:white;
+    padding: 5px;
+    cursor:pointer;
+    appearance: none;
+    background-color: rgb(238, 71, 71);
 }
 .form{
     height: 330px;
