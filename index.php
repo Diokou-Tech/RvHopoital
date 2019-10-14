@@ -50,7 +50,7 @@ $title='Sa_Hopital';
         </main>
         <div class="form">
             <h2>Authentification</h2>
-            <form action="traitement.php" method="post" id="form">
+            <form action="pages/traitement.php" method="post" id="form">
                 <p>
                 <input type="text" name="login" id="login"  autofocus placeholder="votre login"
                      pattern="[a-z]{1,8}" minlength="4"  maxlength="10" title="uniquement des caractères alphabétiques max 6 caractères">
@@ -70,7 +70,7 @@ $title='Sa_Hopital';
         <footer>
             <h4>Propulsé par &copy; Diokou-Tech</h4>
             <div class="admin">
-                <button>Mode administrateur</button>
+                <button><a href="pages/admin.php">Mode administrateur</a></button>
             </div>
         </footer>
         <script src="bootstrap/js/popper.js"></script>
