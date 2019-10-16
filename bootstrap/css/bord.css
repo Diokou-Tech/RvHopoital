@@ -1,0 +1,167 @@
+
+    body,html{
+        padding:0;
+        margin:0;
+    }
+    header{
+        background-color: teal;
+        border-bottom: 2px solid orange;
+        display: flex;
+        align-items: center;
+    }
+    .modal{
+        min-height: 100px;
+        padding: 5px;
+        display: none;
+        top: 10%;
+        left: 10%;
+        position: absolute;
+        background-color: white;
+        width: 500px;
+        justify-content: center;
+        z-index: 2;
+        box-shadow:2px 2px 4px gray;
+    }
+    .modal form{
+        width: 100%;
+        text-align: center;
+    }
+    .modal form button{
+    appearance: none;
+    border: 1px solid orange;
+    background-color: teal;
+    color: white;
+    padding: 5px;  
+    cursor: pointer;      
+    }
+    .modal form input{
+        width: 200px;
+        appearance: none;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid orange;
+        text-align: center;
+        margin-left: 10px;
+    }
+    .modal p label{
+        color: teal;
+        margin-right: 5px;
+    }
+    .row>div{
+        box-shadow:2px 2px 4px gray;
+        min-height: 400px;
+    }
+    .cible,.fermer{
+        cursor: pointer;
+    }
+        table{
+            border:1px solid orange;
+            border-collapse: collapse;
+            width: 500px;
+            text-align:center;
+            margin:5px; 
+        }
+        thead tr{
+    background-color:teal;
+    color: white;            
+        }
+        .row>div>.img{
+            height: 100px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border:1px solid teal;
+        }
+        .img i{
+            font-size:80px;
+            color: teal;
+        }
+        .profil{
+            height: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items:center;
+        }
+        .profil p{
+            text-align: center;
+        }
+        .flash-info ul{
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .flash-info li{
+        margin:4px;
+        border-bottom: 1px solid orange;
+        width: 100%;
+            }
+        .badge{
+            background-color: teal;
+            color: white;
+            padding: 2px;
+            float: right;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+        .ajout{
+            margin: 10px;
+            cursor: pointer;
+            color: teal;
+        }
+        .ajout .material-icons{
+            font-size: 30px;
+        }
+        .log{
+    color: white;
+    height: 50px;
+    width:90%;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(2, 85, 85);
+    font-size: 35px;
+}
+.content{
+    color: teal;
+    margin:0;
+    padding: 0;
+    list-style-type: none;
+}   
+.content li{
+    text-align: justify;
+    padding: 5px;
+    border-bottom: 1px solid orange;
+}
+.content li:hover{
+    background-color:rgb(255, 255, 255);
+    color: teal;
+}
+h4{
+    background-color:teal;
+    margin:0;
+    margin-bottom: 5px;
+    padding: 10px;
+    color:white;
+    width:100%;
+}
+.logout button{
+    border: none;
+    cursor: pointer;
+    color: white;
+    appearance: none;
+    background-color: rgb(252, 65, 65);    
+    padding: 5px;
+}
+.log::first-letter{
+    color:#20bd88;
+}
+.patient{
+    height:150px;
+}
+.opac{
+    opacity: 0.5;
+}
