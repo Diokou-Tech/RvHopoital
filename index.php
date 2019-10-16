@@ -68,7 +68,7 @@ $title='Sa_Hopital';
                 </p>
             </form>
         </div>
-        <div class="alert"></div>
+        <div class="alert"><i class="material-icon">error</i></div>
         <footer>
             <h4>Propulsé par &copy; Diokou-Tech</h4>
             <div class="admin">

@@ -6,7 +6,7 @@
         protected $_base='rvhopital';
         
         public static function connnecter(){
-            $conn = new PDO("mysql:host;dbname={$this->_base}",$this->_user,$this->_pass);
+            $conn = new PDO("mysql:host;dbname=rvhopital",$this->_user,$this->_pass);
 		$conn->setAttribute(PDO::ERRORMODE, PDO::ERROREXCEPTION);
         return $conn;
         }

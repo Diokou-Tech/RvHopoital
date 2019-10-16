@@ -42,11 +42,10 @@ $('document').ready(function(){
         var login=$('#login').val();
         var pass=$('#pass').val();
         if(pass=='' || login==''){
-            $('.alert').text('Veuillez remplir tous les champs');
+            $('.alert').text('Veuillez remplir tous les champs').css('color','white');
             $('.alert').slideDown('slow');
             e.preventDefault();
         }
-       
     })
 
 })  
