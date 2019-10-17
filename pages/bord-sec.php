@@ -2,7 +2,7 @@
 
 ?>
     <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,8 +131,8 @@
     </div>
 </body>
 <script src="../bootstrap/js/jquery-3.js"></script>
-<script src="../bootstrap/js/main.js"></script>
     <script src="../bootstrap/DataTables/datatables.js"></script>
+    <script src="../bootstrap/js/main.js"></script>
     <script>
 $(document).ready(function(){
     function verif_form_ajout(){
@@ -146,7 +146,16 @@ $(document).ready(function(){
     $('#ajout').on('submit',function(e){
             if(verif_form_ajout){
                 e.preventDefault();
+                $('.alert').css({
+                    'background-color':'rgb(235, 79, 79)',
+                    'color':'white',
+                    'padding':'5px',
+                    'text-align':'center'
+                });
                 $('.alert').text('veuiller remplir tous les champs pour ajouter un rendez-vous');
+            }else{
+                ('.alert').css('background-color','teal');
+                ('.alert').text('rendez-vous ajouté avec succès !');
             }
     })
     $('#table').DataTable( {
