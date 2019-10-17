@@ -104,31 +104,30 @@
                 <h4>Ajout d'un rendez-vous</h4>
                 <p>
                     <label for="patient">patient</label>
-                    <input type="text" name="patient" pattern="[a-z0-9]{6}">
+                    <input type="text" name="patient" pattern="[a-z0-9]{6}" id="pat">
                 </p>
                 <p>
                     <label for="medecin">medecin</label>
-                    <input type="text" name="medecin" pattern="[a-z0-9]{6}">
+                    <input type="text" name="medecin" pattern="[a-z0-9]{6}" id="med">
                 </p>
                 <p>
                     <label for="Date">Date</label>
-                    <input type="date" name="date_rv">
+                    <input type="date" name="daterv" id="daterv">
                 </p>
                 <p>
                     <label for="heure">heure</label>
-                    <input type="time" name="heure">
+                    <input type="time" name="heure" id="heure">
                 </p>
                 <p>
                     <label for="motif">motif</label>
-                    <input type="text" name="motif">
-                </p>
-                <p>
-                    <label for="etat">etat</label>
-                    <input type="text" value="non effectué" readonly name="etat">
+                    <input type="text" name="motif" id="motif">
                 </p>
                 <p><button type="submit">enregistrer</button></p>
                 <i class="material-icons fermer" title="fermer">close</i>
             </form>
+            <div class="alert">
+
+            </div>
     </div>
 </body>
 <script src="../bootstrap/js/jquery-3.js"></script>
@@ -136,6 +135,20 @@
     <script src="../bootstrap/DataTables/datatables.js"></script>
     <script>
 $(document).ready(function(){
+    function verif_form_ajout(){
+        var pat=$('#pat').val();
+        var med=$('#med').val();
+        var daterv=$('#daterv').val();
+        var heure=$('#heure').val();
+        var motif=$('#motif').val();
+        return(pat=='' || med =='' || daterv=='' || heure=='' || motif=='')
+    }
+    $('#ajout').on('submit',function(e){
+            if(verif_form_ajout){
+                e.preventDefault();
+                $('.alert').text('veuiller remplir tous les champs pour ajouter un rendez-vous');
+            }
+    })
     $('#table').DataTable( {
     language: {
         processing:     "Traitement en cours...",
@@ -159,7 +172,7 @@ $(document).ready(function(){
             sortDescending: ": activer pour trier la colonne par ordre décroissant"
         }
     }
-} );
+});
     $('.cible').click(function(){
         $('.modal').fadeToggle('slow');
         $('main').toggleClass('opac');
@@ -168,6 +181,7 @@ $(document).ready(function(){
         $(this).parents('.modal').fadeOut('slow');
         $('main').toggleClass('opac');
     });
-} );
+    
+});
     </script>
 </html>

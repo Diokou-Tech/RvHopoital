@@ -38,11 +38,19 @@ $('document').ready(function(){
         var login=$('#login').val();
         var pass=$('#pass').val();
         if(pass=='' || login==''){
-            $('.alert').after('<i class"material-icons">alert</i>')
             $('.alert').text('Veuillez remplir tous les champs').css('color','white');
+            $('.alert').after('<i class"material-icons">alert</i>')
             $('.alert').slideDown('slow');
             e.preventDefault();
         }
     })
-
+    
+    $('.cible').click(function(){
+        $('.modal').fadeOut('slow');
+        $('main').toggleClass('opac');
+    });
+    $('.fermer').click(function(){  
+        $(this).parents('.modal').fadeOut('slow');
+        $('main').toggleClass('opac');
+    });
 })  
