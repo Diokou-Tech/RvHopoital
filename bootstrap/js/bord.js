@@ -9,7 +9,6 @@ $(document).ready(function(){
     }
     $('#ajout').on('submit',function(e){
             if(verif_form_ajout){
-                e.preventDefault();
                 $('.alert').css({
                     'background-color':'rgb(235, 79, 79)',
                     'color':'white',
@@ -21,6 +20,7 @@ $(document).ready(function(){
                 ('.alert').css('background-color','teal');
                 ('.alert').text('rendez-vous ajouté avec succès !');
             }
+            e.preventDefault();
     })
     $('#table').DataTable( {
     language: {

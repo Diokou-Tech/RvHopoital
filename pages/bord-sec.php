@@ -111,7 +111,7 @@
         </div>
     </main>
     <div class="modal">
-            <form action="#" method="post" id="ajout">
+            <form action="traitement.php" method="post" id="ajout">
                 <h4>Ajout d'un rendez-vous</h4>
                 <p>
                     <label for="patient">patient</label>
