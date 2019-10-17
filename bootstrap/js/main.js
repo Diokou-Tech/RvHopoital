@@ -1,8 +1,9 @@
 function formulaire(){
+    if($('.form').slideDown('slow')){
     $('main').css('opacity',0.2)
     $('.btnvue').prev('input').attr('type','password');
-    $('.form').slideDown('slow');
     $('.btnvue').text('visibility')
+    }
 }
 function fermerform(){
     $('.form').slideUp();
@@ -32,16 +33,12 @@ $('document').ready(function(){
     $('nav i').click(function(){
         $('.dropcontent').slideToggle('fast'); 
     }) 
-    $(document).keypress(function(e){
-        var touche = String.fromCharCode(e.which);
-        if(touche==' '){
-            formulaire();
-        } 
-    })
+
     $('#form').submit(function(e){
         var login=$('#login').val();
         var pass=$('#pass').val();
         if(pass=='' || login==''){
+            $('.alert').after('<i class"material-icons">alert</i>')
             $('.alert').text('Veuillez remplir tous les champs').css('color','white');
             $('.alert').slideDown('slow');
             e.preventDefault();

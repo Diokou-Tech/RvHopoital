@@ -51,15 +51,15 @@ $title='Sa_Hopital';
         <div class="form">
             <h2>Authentification</h2>
             <form action="pages/traitement.php" method="post" id="form">
-            <label for="medecin">Secretaire<input type="radio" name="profil" id="" value="secretaire" style="width:100px;margin:4px;"></label>
-            <br><label for="medecin">Medecin <input type="radio" name="profil" id="" value="medecin" style="width:100px;"></label>
+            <label for="medecin">Secretaire<input type="radio" name="profil"  value="secretaire" checked></label>
+            <br><label for="medecin">Medecin <input type="radio" name="profil" value="medecin" ></label>
                 <p>
                 <input type="text" name="login" id="login"  autofocus placeholder="votre login"
-                     pattern="[a-z]{1,8}" minlength="4"  maxlength="10" title="uniquement des caractères alphabétiques max 6 caractères">
+                     pattern="[a-z0-9]{6}" title="uniquement des caractères alphabétiques max 6 caractères">
                 <i style="visibility:hidden" class="material-icons">visibility</i>
                 </p>
                 <p>
-                <input type="password" name="pass" id="pass" placeholder="Votre mot de passe" pattern="[a-z]{1,10}"  minlength="4"  maxlength="10" title="uniquement des caractères alphanumériques max 10 caractères">
+                <input type="password" name="pass" id="pass" placeholder="Votre mot de passe" pattern="[a-z0-9]{1,10}"  minlength="4"  maxlength="10" title="uniquement des caractères alphanumériques max 10 caractères">
                 <i title="afficher" class="material-icons btnvue">visibility</i>
                 </p>
                 <button>Conexion &rarr;</button>
@@ -78,5 +78,13 @@ $title='Sa_Hopital';
         <script src="bootstrap/js/popper.js"></script>
         <script src="bootstrap/js/jquery-3.js"></script>
   <script src="bootstrap/js/main.js"></script>  
+  <script>
+      $(document).keypress(function(e){
+        var touche = String.fromCharCode(e.which);
+        if(touche==' '){
+            formulaire();
+        } 
+    })
+  </script>
 </body>
 </html>

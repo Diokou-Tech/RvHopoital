@@ -4158,7 +4158,7 @@
 	 * `_fnGetObjectDataFn` allows the data to be sourced from a property of the
 	 * source object, or from a processing function.
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param  {object} json Data source object / array from the server
+	 *  @param  {object}  Data source object / array from the server
 	 *  @return {array} Array of data to use
 	 */
 	function _fnAjaxDataSrc ( oSettings, json )

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../bootstrap/css/monstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -19,15 +20,17 @@
         <h2>Compte administrateur</h2>
         <p><small>Réservé uniquement aux administrateurs</small></p>
         <p>
-                <input type="text" name="login" id="login" placeholder='votre login'>
+                <input type="text" name="login" id="login" placeholder='votre login' pattern="[a-z0-9]{,10}" >
         </p>
         <p>
-                <input type="text" name="mopasse" id="mopasse" placeholder="votre mot de passe">
+                <input type="text" name="mopasse" id="mopasse" placeholder="votre mot de passe" pattern="[a-z0-9]{,15}">
         </p>
         <p>
             <button type="submit">se connecter &rarr;</button>
         </p>
             </form>
+            <div class="alert">
+            </div>
     </main>
     <script src="../bootstrap/js/popper.js"></script>
         <script src="../bootstrap/js/jquery-3.js"></script>
