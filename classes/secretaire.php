@@ -1,10 +1,6 @@
 <?php
-    require('connexion.php');
-    $db=connexion($user,$pass);
-$zola = new Manager($db);
 class Manager{
         private $_db;  //instance de PDO
-        public $_login='emp001';
 
         public function __construct($db){
             $this->setDB($db);
@@ -36,7 +32,15 @@ class Manager{
         public function setDB(PDO $db){
         $this->_db=$db;           
         }
+        public static function redir(){
+            header('location:../index.php');
+        }
+        public function normalize($var){
+            $var=trim($var);
+            $var=htmlentities($var);
+            $var=strip_tags($var);
+            return $var;
+        }
 }
 
-Manager::ajout_rv();
 ?>

@@ -39,7 +39,6 @@ $('document').ready(function(){
         var pass=$('#pass').val();
         if(pass=='' || login==''){
             $('.alert').text('Veuillez remplir tous les champs').css('color','white');
-            $('.alert').after('<i class"material-icons">alert</i>')
             $('.alert').slideDown('slow');
             e.preventDefault();
         }

@@ -84,6 +84,7 @@ main{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    min-height: 500px;
 }
 main>div{
     width:400px;
@@ -135,7 +136,7 @@ footer a{
 }
 .form{
     height: 330px;
-    width: 300px;
+    width: 350px;
     padding: 10px;
     background:transparent;
     box-shadow: 2px 2px 10px teal;
@@ -232,7 +233,6 @@ nav .mob{
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     bottom: 50%;
-    display: none;
     transition: 2s transform(scale(1.1));
 }
 .dropcontent button{
