@@ -1,12 +1,16 @@
 <?php
 require('../classes/secretaire.php');   
     session_start();
+    Manager::verif_session();
+    $sec = new Manager($conn);
     $login=$_SESSION['login'];
     if(!empty($_POST)){
         $med=$_POST['medecin'];
         $patient=$_POST['patient'];
-        $patient=$_POST['patient'];
-        $patient=$_POST['patient'];
+        $date=$_POST['daterv'];
+        $heure=$_POST['heure'];
+        $motif=$_POST['motif'];
+
     }
 ?>
     <!DOCTYPE html>
@@ -71,21 +75,6 @@ require('../classes/secretaire.php');
                             </thead>
                             <tbody>
                                 <tr>
-                                <td>1</td>
-                                    <td>med001</td>
-                                    <td>pat001</td>
-                                    <td>2019-10-25</td>
-                                    <td>12:00</td>
-                                    <td>suivi du traitement</td>
-                                    <td>non effectué</td>
-                                    <td style="border:none">
-                                <i class="material-icons">check</i>
-                                    </td>
-                                    <td style="border:none">
-                                    <i class="material-icons">edit</i>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>2</td>
                                     <td>adja</td>
                                     <td>mbaye</td>
@@ -94,10 +83,10 @@ require('../classes/secretaire.php');
                                     <td>suivi du traitement</td>
                                     <td>non effectué</td>
                                     <td style="border:none">
-                                <i class="material-icons">check</i>
+                                    <a href="#"><i class="material-icons">check</i></a>
                                     </td>
                                     <td style="border:none">
-                                    <i class="material-icons">edit</i>
+                                    <a href="#"><i class="material-icons">edit</i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -107,19 +96,16 @@ require('../classes/secretaire.php');
                 <h4>info-patient</h4>
                 <div>
                         <ul class="content">
-                            <li>Abdou <b>Fall</b></li>
-                            <li>78 386 24 14 / 76 576 54 04</li>
-                            <li>Yeumbeul Nord</li>
-                            <li>Abdou <b>Fall</b></li>
-                            <li>78 386 24 14 / 76 576 54 04</li>
-                            <li>Yeumbeul Nord</li>
+                        <?php
+                        $sec->affichepat('pat001');
+                        ?>
                         </ul> 
                 </div>
             </div>
         </div>
     </main>
     <div class="modal">
-            <form action="traitement.php" method="post" id="ajout">
+            <form method="post" id="ajout">
                 <h4>Ajout d'un rendez-vous</h4>
                 <p>
                     <label for="medecin">medecin</label>

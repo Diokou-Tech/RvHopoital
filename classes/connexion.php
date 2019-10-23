@@ -14,10 +14,7 @@ function connexion($u,$p){
     }
     return $connect;
 }
-/* $conn=connexion($user,$pass);
-$data=$conn->query('select * from service where id_service="se01"')->fetchAll();
-var_dump($data); */
-
+$conn = connexion($user,$pass);
 
 
 

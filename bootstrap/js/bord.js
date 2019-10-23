@@ -7,7 +7,7 @@ $(document).ready(function(){
         var motif=$('#motif').val();
         return(pat=='' || med =='' || daterv=='' || heure=='' || motif=='')
     }
-    $('#ajout').on('submit',function(e){
+/*     $('#ajout').on('submit',function(e){
             if(verif_form_ajout){
                 $('.alert').css({
                     'background-color':'rgb(235, 79, 79)',
@@ -16,10 +16,26 @@ $(document).ready(function(){
                     'text-align':'center'
                 });
                 $('.alert').text('veuiller remplir tous les champs pour ajouter un rendez-vous');
+                e.preventDefault();
             }else{
                 ('.alert').css('background-color','teal');
                 ('.alert').text('rendez-vous ajouté avec succès !');
             }
+    }) */
+    $('#ajout').on('submit',function(e){
+        if(verif_form_ajout()){
+            $('.alert').css({
+                'background-color':'rgb(235, 79, 79)',
+                'color':'white',
+                'padding':'5px',
+                'text-align':'center'
+            });
+            $('.alert').text('veuiller remplir tous les champs pour ajouter un rendez-vous');
+            e.preventDefault();   
+        }else{
+            ('.alert').css('background-color','teal');
+            ('.alert').text('rendez-vous ajouté avec succès !');
+        }
     })
     $('#table').DataTable( {
     language: {
@@ -45,6 +61,7 @@ $(document).ready(function(){
         }
     }
 });
+    $('.alert').show();
     $('.cible').click(function(){
         $('.modal').fadeToggle('slow');
         $('main').toggleClass('opac');

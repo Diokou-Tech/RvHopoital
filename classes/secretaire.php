@@ -1,4 +1,5 @@
 <?php
+require('connexion.php');
 class Manager{
         private $_db;  //instance de PDO
 
@@ -31,9 +32,9 @@ class Manager{
             $data=$q->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
-        public static function ajout_rv()
+        public function ajout_rv()
         {
-           echo "zola is  back static";
+            
         }
         public function setDB(PDO $db)
         {
@@ -53,6 +54,12 @@ class Manager{
             if(empty($_SESSION['login']))
             {
                 self::redir(1);
+            }
+        }
+        public function affichepat(string $id){
+            $tab=self::getpatient($id);
+            foreach($tab as $val){
+                echo "<li> $val </li>";
             }
         }
 }

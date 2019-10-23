@@ -74,7 +74,7 @@ $title='Sa_Hopital';
                     $e=$_GET['error'];
                     if(isset($e)){
                         $r= new Erreur($e);
-                        $r->getMessage();
+                       echo  $r->getMessage();
                     }
                 }
             ?>  

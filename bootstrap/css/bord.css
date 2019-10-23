@@ -69,9 +69,7 @@
     color: white;            
         }
         .alert{
-            position: absolute;
             display: block;
-            padding: 10px;
             color: white;
             text-align: center;
             right: 0;   
