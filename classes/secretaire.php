@@ -7,19 +7,19 @@ class Manager{
         {
             $this->setDB($db);
         } 
-        public function list_rv($sec):array
+        public function list_rv($sec):array //recupére la liste des rendez concernant un secretaire
         {
         $q=$this->_db->query('select * from rendezvous where matricule="'.$sec.'"');
         $donnes=$q->fetchAll();
         return $donnes;
         }
-        public function is_valid_sec(string $login,string $pwd)
+        public function is_valid_sec(string $login,string $pwd)// verifie l'athentification des sécretaires dans la base
         {
             $q = $this->_db->query('select * from secretaire  where identifiant="'.$login.'" and  motpasse="'.$pwd.'"');
             $data=$q->rowCount();
             return $data;
         }
-        public function is_valid_med(string $login,string $pwd)
+        public function is_valid_med(string $login,string $pwd)//// verifie l'athentification des medecins
         {
             $q = $this->_db->query('select * from medecin  where identifiant="'.$login.'" and  motpasse="'.$pwd.'"');
             $data=$q->rowCount();
@@ -32,7 +32,7 @@ class Manager{
             $data=$q->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
-        public function ajout_rv()
+        public static function ajout_rv()
         {
             
         }
@@ -53,7 +53,7 @@ class Manager{
         public static function verif_session(){
             if(empty($_SESSION['login']))
             {
-                self::redir(1);
+                self::redir(0);
             }
         }
         public function affichepat(string $id)

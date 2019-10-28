@@ -11,7 +11,6 @@ require('../classes/secretaire.php');
         $date=manager::normalize($_POST['daterv']);
         $heure=manager::normalize($_POST['heure']);
         $motif=manager::normalize($_POST['motif']);
-
     }
 ?>
     <!DOCTYPE html>
