@@ -16,13 +16,7 @@ function connexion($u,$p){
 }
 $conn = connexion($user,$pass);
 
-
-
-
-
-
-
-
-
-
 ?>
+
+
+

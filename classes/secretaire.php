@@ -88,6 +88,11 @@ class Manager{
             $data=$q->rowCount();
             return $data;
         }
+        public static function isWeekend($date) {
+            $weekDay = date('w', strtotime($date));
+            return ($weekDay == 0 || $weekDay == 6);
+        }
+
 }
 
 ?>

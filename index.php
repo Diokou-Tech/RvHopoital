@@ -55,12 +55,11 @@ $title='Sa_Hopital';
             <label for="medecin">Secretaire<input type="radio" name="profil"  value="secretaire" checked></label>
             <br><label for="medecin">Medecin <input type="radio" name="profil" value="medecin" ></label>
                 <p>
-                <input type="text" name="login" id="login"  autofocus placeholder="votre login"
-                     pattern="[a-z0-9]{6}" title="uniquement des caractères alphabétiques max 6 caractères">
+                <input type="text" name="login" id="login"  autofocus placeholder="Entrez votre login">
                 <i style="visibility:hidden" class="material-icons">visibility</i>
                 </p>
                 <p>
-                <input type="password" name="pass" id="pass" placeholder="Votre mot de passe" pattern="[a-z0-9]{1,10}"  minlength="4"  maxlength="10" title="uniquement des caractères alphanumériques max 10 caractères">
+                <input type="password" name="pass" id="pass" placeholder="Entrez Votre mot de passe" minlength="4"  maxlength="10">
                 <i title="afficher" class="material-icons btnvue">visibility</i>
                 </p>
                 <button>Conexion &rarr;</button>

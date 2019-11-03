@@ -6,12 +6,18 @@ require('../classes/secretaire.php');
     $aujourdhui = date('Y-m-d'); 
     $login=$_SESSION['login'];
     if(!empty($_POST)){
-        $med=manager::normalize($_POST['medecin']);
-        $patient=manager::normalize($_POST['patient']);
-        $date=manager::normalize($_POST['daterv']);
-        $heure=manager::normalize($_POST['heure']);
-        $motif=manager::normalize($_POST['motif']);
+        $med=Manager::normalize($_POST['medecin']);
+        $patient=Manager::normalize($_POST['patient']);
+        $date=Manager::normalize($_POST['daterv']);
+        $heure=Manager::normalize($_POST['heure']);
+        $motif=Manager::normalize($_POST['motif']);
+        if($sec->verfif_doublon($date,$heure) || $sec->isWeekend($date)){
+            
+        }else{
+            
+        }
     }
+    
 ?>
     <!DOCTYPE html>
 <html lang="fr">
@@ -59,8 +65,11 @@ require('../classes/secretaire.php');
                <div class="ajout" title="ajouter un rendez-vous">
                 <i class="material-icons cible">add_circle_outline</i>
                </div>
+               <div class="mess-error">
+    a ullam necessitatibus
+    </div>
             </div>
-            <div class="col-lg-7 col-md-7">
+            <div class="col-lg-8 col-md-7">
                     <table border="1" id="table">
                             <thead>
                                 <th>id</th>
@@ -70,6 +79,7 @@ require('../classes/secretaire.php');
                                 <th>heure</th>
                                 <th>motif</th>
                                 <th>Etat</th>
+                                <th style="visibility:hidden"></th>
                                 <th style="visibility:hidden"></th>
                                 <th style="visibility:hidden"></th>
                             </thead>
@@ -88,11 +98,14 @@ require('../classes/secretaire.php');
                                     <td style="border:none">
                                     <a href="?supp=emp001"><i class="material-icons">delete</i></a>
                                     </td>
+                                    <td style="border:none">
+                                    <a href="?supp=emp001"><i class="material-icons">visibility</i></a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
             </div>
-            <div class="col-lg-3 col-md-3 patient">
+            <div class="col-lg-2 col-md-3 patient">
                 <h4>info-patient</h4>
                 <div>
                         <ul class="content">

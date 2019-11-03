@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>administrateur</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png" />
     <link rel="stylesheet" href="../bootstrap/css/monstyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -14,7 +15,7 @@
                     Sa-Hôpital
                 </div>
     </nav>
-  <button>  <a href="../index.php">Acceuil</a></button>
+  <button><a href="../index.php"><i class="material-icons left">home</i>Acceuil</a></button>
     <main>
     <form action="pages/traitement.php" method="post" id="form">    
         <h2>Compte administrateur</h2>
@@ -58,6 +59,14 @@
             form{
                 box-shadow:2px 2px 2px gray;
                 padding:5px;
+            }
+            body>button a{
+                text-decoration:none;
+                color:white;
+            }
+            body>button{
+                color:white;
+                background-color:teal;
             }
             
     </style>                

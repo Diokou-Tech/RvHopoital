@@ -8,7 +8,7 @@ else{
     $motpasse=Manager::normalize($_POST['pass']);
     $login=Manager::normalize($_POST['login']);
 }
-    $db=connexion('zola','1996diokou');
+    $db=$conn;
     if ($profil=='secretaire'){
             $user= new Manager($db);
             if($user->is_valid_sec($login,$motpasse)){
