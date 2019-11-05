@@ -1,13 +1,26 @@
 <?php
-
+require('../classes/secretaire.php');   
+    session_start();
+    Manager::logout();
+    Manager::verif_session();
+    $mess=null;
+    $med = new Manager($conn);
+    $user= $med ->getuser($_SESSION['profil'],$_SESSION['login']);
+    $login=$_SESSION['login'];
+    if(isset($_GET['supp'])){
+        $med->delete_rv($_GET['supp']);
+        $mess='suppresion du rendez-vous reussie !';
+    }
 ?>
     <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tableau de Bord</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png" /> 
     <link rel="stylesheet" href="../bootstrap/css/bord.css">    
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../bootstrap/DataTables/datatables.css">
@@ -16,10 +29,10 @@
 <body>
     <header>
         <div class="log">
-            Sâ-Hopital
+            Sa-Hôpital
         </div>
         <div class="logout">
-            <button>Se Deconnecter</button>
+            <button><a href="?logout=true">Se Deconnecter</a></button>
         </div>
     </header>
     <main>
@@ -31,8 +44,10 @@
                 </div>
                 <div class="info">
                     <p>
-                            <b>Cheikhou DIOKOU</b><br>
-                            <small>Service de Chirurgie</small>
+                            <b>
+                            <?php echo $user['prenom']; echo ' ';echo $user['nom'];  ?>
+                            </b><br>
+                            <small>Service de <?php $med->getservice($user['service']);?></small>
                     </p>
                     <hr>
                     <div class="flash-info">
@@ -44,60 +59,69 @@
                             </ul>
                     </div>
                 </div>
+            
+               <div class="mess-error"> <i class="material-icons">error</i>
+               <span><?php Manager::set($mess) ?></span>
+                 </div>
             </div>
-            <div class="col-lg-7 col-md-7">
+            <div class="col-lg-8 col-md-7">
                     <table border="1" id="table">
                             <thead>
                                 <th>id</th>
+                                <th>medecin</th>
                                 <th>patient</th>
-                                <th>sexe</th>
-                                <th>heure_rv</th>
-                                
+                                <th>date</th>
+                                <th>heure</th>
+                                <th>motif</th>
+                                <th>Etat</th>
+                                <th style="visibility:hidden"></th>
+                                <th style="visibility:hidden"></th>
+                                <th style="visibility:hidden"></th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>cheikh</td>
-                                    <td>diokou</td>
-                                    <td>M</td>
-                                    <td>12:30</td>
+                                <?php
+                                $datas = $med->list_rv($_SESSION['profil'],$login);
+                                foreach($datas as $data){
+                                    echo "<tr>";
+                                    foreach($data as $key => $val){
+                                        if($key!='secretaire'){
+                                            echo "<td>$val</td>";
+                                        }
+                                    }
+                                    ?>
+                                     <td style="border:none">
+                                    <a href="?valid=<?php if(isset($data)){echo $data['id'];}?>"><i class="material-icons">check</i></a>
+                                    </td>
+                                    <td style="border:none">
+                                    <a href="?supp=<?php if(isset($data)){echo $data['id'];}?>"><i class="material-icons">delete</i></a>
+                                    </td>
+                                    <td style="border:none">
+                                    <a href="?patient=<?php if(isset($data)){echo $data['patient'];}?>"><i class="material-icons">visibility</i></a>
+                                    </td>
+                                    <?php
+                                    echo "</tr>";
+                                   }
+
+                                ?>
                                 </tr>
-                                <tr>
-                                    <td>zola</td>
-                                    <td>tech</td>
-                                    <td>M</td>
-                                    <td>13:30</td>
-                                </tr>
-                                <tr>
-                                    <td>adja</td>
-                                    <td>mbaye</td>
-                                    <td>F</td>
-                                    <td>12:50</td>
-                                </tr>
-                                <tr>
-                                        <td>adja</td>
-                                        <td>mbaye</td>
-                                        <td>F</td>
-                                        <td>12:50</td>
-                                    </tr>
                             </tbody>
                         </table>
             </div>
-            <div class="col-lg-3 col-md-3 patient">
+            <div class="col-lg-2 col-md-3 patient">
                 <h4>info-patient</h4>
                 <div>
                         <ul class="content">
-                            <li>Abdou <b>Fall</b></li>
-                            <li>78 386 24 14 / 76 576 54 04</li>
-                            <li>Yeumbeul Nord</li>
-                            <li>Abdou <b>Fall</b></li>
-                            <li>78 386 24 14 / 76 576 54 04</li>
-                            <li>Yeumbeul Nord</li>
+                        <?php
+                        if(!($p=Manager::get('patient'))){
+                            $p=$datas[0]['patient'];
+                        }
+                        $med->affichepat($p);
+                        ?>
                         </ul> 
                 </div>
             </div>
         </div>
-    </main>
-
+    </main> 
 </body>
 <script src="../bootstrap/js/jquery-3.js"></script>
     <script src="../bootstrap/DataTables/datatables.js"></script>

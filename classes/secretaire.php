@@ -6,11 +6,17 @@ class Manager{
         {
             $this->setDB($db);
         } 
-        public function list_rv($sec):array //recupére la liste des rendez concernant un secretaire
+        public function list_rv($profil,$id):array //recupére la liste des rendez concernant un secretaire
         {
-        $q=$this->_db->query('select * from rendezvous where secretaire="'.$sec.'"');
-        $donnes=$q->fetchAll(PDO::FETCH_ASSOC);
-        return $donnes;
+        if($profil=='secretaire'){
+            $q=$this->_db->query('select * from rendezvous where secretaire="'.$id.'"');
+            $donnes=$q->fetchAll(PDO::FETCH_ASSOC);
+            return $donnes;
+        }else{
+            $q=$this->_db->query('select * from rendezvous where medecin="'.$id.'"');
+            $donnes=$q->fetchAll(PDO::FETCH_ASSOC);
+            return $donnes;
+        }
         }
         public function is_valid_sec(string $login,string $pwd)// verifie l'athentification des sécretaires dans la base
         {
@@ -122,6 +128,9 @@ class Manager{
         }else{
             echo "Message ";
         }   
+        }
+        public function total($login,$date){
+
         }
 
 }

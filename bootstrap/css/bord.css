@@ -38,9 +38,11 @@
     cursor: pointer;      
     }
     .mess-error{
-        background-color: orange;
+        background-color: rgb(206, 135, 3);
         color: white;
-        text-align: center;
+        padding: 5px;
+        display: flex;
+        align-items: center;
     }
     .modal form input{
         width: 200px;

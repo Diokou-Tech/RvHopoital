@@ -24,7 +24,7 @@
                 <input type="text" name="login" id="login" placeholder='votre login' pattern="[a-z0-9]{,10}" >
         </p>
         <p>
-                <input type="text" name="mopasse" id="mopasse" placeholder="votre mot de passe" pattern="[a-z0-9]{,15}">
+                <input type="password" name="mopasse" id="mopasse" placeholder="votre mot de passe" pattern="[a-z0-9]{,15}">
         </p>
         <p>
             <button type="submit">se connecter &rarr;</button>

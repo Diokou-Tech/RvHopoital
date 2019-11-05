@@ -3,6 +3,7 @@ require('../classes/secretaire.php');
     session_start();
     Manager::logout();
     Manager::verif_session();
+    $mess=null;
     $sec = new Manager($conn);
     $user= $sec ->getuser($_SESSION['profil'],$_SESSION['login']);
     $aujourdhui = date('Y-m-d'); 
@@ -35,6 +36,7 @@ require('../classes/secretaire.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tableau de Bord</title>
+    <link rel="icon" type="image/png" href="../img/favicon.png" /> 
     <link rel="stylesheet" href="../bootstrap/css/bord.css">    
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../bootstrap/DataTables/datatables.css">
@@ -78,7 +80,7 @@ require('../classes/secretaire.php');
                </div>
                <hr>
                <div class="mess-error"> <i class="material-icons">error</i>
-               <span><?php if(isset($mess)){Manager::set($mess);}   ?></span>
+               <span><?php Manager::set($mess) ?></span>
                  </div>
                <h3>Horaire</h3>
                <span>matin : 8h à 12h</span>
@@ -101,7 +103,7 @@ require('../classes/secretaire.php');
                             </thead>
                             <tbody>
                                 <?php
-                                $datas = $sec->list_rv($login);
+                                $datas = $sec->list_rv($_SESSION['profil'],$_SESSION['login']);
                                 foreach($datas as $data){
                                     echo "<tr>";
                                     foreach($data as $key => $val){
