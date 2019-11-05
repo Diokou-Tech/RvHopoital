@@ -38,9 +38,9 @@
     cursor: pointer;      
     }
     .mess-error{
-        width: 100%;
         background-color: orange;
         color: white;
+        text-align: center;
     }
     .modal form input{
         width: 200px;
@@ -190,6 +190,11 @@ h4{
     appearance: none;
     background-color: rgb(252, 65, 65);    
     padding: 5px;
+}
+.logout>button>a{
+    color: white;
+    text-decoration: none;
+    
 }
 .log::first-letter{
     color:#20bd88;

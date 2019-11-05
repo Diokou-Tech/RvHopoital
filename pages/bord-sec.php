@@ -1,27 +1,28 @@
 <?php
 require('../classes/secretaire.php');   
     session_start();
+    Manager::logout();
     Manager::verif_session();
     $sec = new Manager($conn);
+    $user= $sec ->getuser($_SESSION['profil'],$_SESSION['login']);
     $aujourdhui = date('Y-m-d'); 
     $login=$_SESSION['login'];
+    if(isset($_GET['supp'])){
+        $sec->delete_rv($_GET['supp']);
+        $mess='suppresion du rendez-vous reussie !';
+    }
     if(!empty($_POST)){
         $med=Manager::normalize($_POST['medecin']);
         $patient=Manager::normalize($_POST['patient']);
         $date=Manager::normalize($_POST['daterv']);
         $heure=Manager::normalize($_POST['heure']);
         $motif=Manager::normalize($_POST['motif']);
-        if($sec->verfif_doublon($date,$heure) || $sec->isWeekend($date)){
-            $_GET['error']=1;
+        if($sec->verif_doublon($date,$heure) || $sec->isWeekend($date)){
+            $mess='date deja occupé ou c\'est un weekend';
         }else{
-            $donnee = [
-                'secretaire' => $login,
-                'medecin' => $med,
-                'patient' => $patient,
-                'date' => $date,
-                'heure' => $heure,
-                'motif' => $motif
-            ];
+            if($sec->ajout_rv($login,$med,$patient,$date,$heure,$motif)){
+                $mess='Rendez-vous ajouté avec succès';
+            }
         }
     }
     
@@ -31,10 +32,9 @@ require('../classes/secretaire.php');
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tableau de Bord</title>
     <link rel="stylesheet" href="../bootstrap/css/bord.css">    
     <link rel="stylesheet" href="../bootstrap/css/bootstrap-grid.css">
     <link rel="stylesheet" href="../bootstrap/DataTables/datatables.css">
@@ -46,7 +46,7 @@ require('../classes/secretaire.php');
             Sa-Hôpital
         </div>
         <div class="logout">
-            <button>Se Deconnecter</button>
+            <button><a href="?logout=true">Se Deconnecter</a></button>
         </div>
     </header>
     <main>
@@ -58,8 +58,10 @@ require('../classes/secretaire.php');
                 </div>
                 <div class="info">
                     <p>
-                            <b>Cheikhou DIOKOU</b><br>
-                            <small>Service de Chirurgie</small>
+                            <b>
+                            <?php echo $user['prenom']; echo ' ';echo $user['nom'];  ?>
+                            </b><br>
+                            <small>Service de <?php $sec->getservice($user['service']);?></small>
                     </p>
                     <hr>
                     <div class="flash-info">
@@ -74,9 +76,10 @@ require('../classes/secretaire.php');
                <div class="ajout" title="ajouter un rendez-vous">
                 <i class="material-icons cible">add_circle_outline</i>
                </div>
-               <div class="mess-error">
-    a ullam necessitatibus
-    </div>
+               <hr>
+               <div class="mess-error"> <i class="material-icons">error</i>
+               <span><?php if(isset($mess)){Manager::set($mess);}   ?></span>
+                 </div>
                <h3>Horaire</h3>
                <span>matin : 8h à 12h</span>
                <span>Soir : 15h à 17h</span>
@@ -130,7 +133,10 @@ require('../classes/secretaire.php');
                 <div>
                         <ul class="content">
                         <?php
-                        $sec->affichepat('pat001');
+                        if(!($p=Manager::get('patient'))){
+                            $p=$datas[0]['patient'];
+                        }
+                        $sec->affichepat($p);
                         ?>
                         </ul> 
                 </div>
@@ -171,7 +177,7 @@ require('../classes/secretaire.php');
             <div class="alert">
 
             </div>
-    </div>
+    </div>  
 </body>
 <script src="../bootstrap/js/jquery-3.js"></script>
     <script src="../bootstrap/DataTables/datatables.js"></script>

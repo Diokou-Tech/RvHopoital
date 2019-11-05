@@ -24,9 +24,6 @@ $title='Foire aux Questions';
                     <li><a href="guide.php"><i class="material-icons left">mode_edit</i>Guide d'utilisation</a></li>
                     <li><a href="faq.php"><i class="material-icons left">flag</i>FAQ</a></li>
                 </ul>
-                <button>
-                   &rarr; se connecter
-                </button>
             </nav>
         </header>
         <main>

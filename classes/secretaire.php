@@ -30,9 +30,19 @@ class Manager{
             $data=$q->fetch(PDO::FETCH_ASSOC);
             return $data;
         }
-        public static function ajout_rv()
+        public function ajout_rv($sec,$med,$pat,$dat,$heu,$mot)
         {
-            
+            $sql="INSERT INTO rendezvous
+            (secretaire,medecin,patient,date_rv,heure,motif)
+            VALUES
+            ('$sec','$med','$pat','$dat','$heu','$mot')";
+            $q = $this->_db->exec($sql);
+            return $q;
+        }
+        public function delete_rv($id){
+            $sql="DELETE FROM rendezvous where  id='$id'";
+            $q = $this->_db->exec($sql);
+
         }
         public function setDB(PDO $db)
         {
@@ -61,21 +71,21 @@ class Manager{
                 if($key !='matricule')
                 echo "<li> <strong>$key :</strong> $val </li>";
             }
-        }
-        public function getsec($id)
+        }   
+        public function getuser($profil,$id)
         {
-            $q = $this->_db->query('select * from secretaire where identifiant="'.$id.'"');
-            $data=$q->fetch(PDO::FETCH_ASSOC);
-            return $data;
-        }
-        public function getmed($id)
-        {
-            $q = $this->_db->query('select * from medecin where identifiant="'.$id.'"');
-            $data=$q->fetch(PDO::FETCH_ASSOC);
-            return $data;
+            if($profil=='secretaire'){
+                $q = $this->_db->query('select * from secretaire where identifiant="'.$id.'"');
+                $data=$q->fetch(PDO::FETCH_ASSOC);
+                return $data;
+            }else{
+                $q = $this->_db->query('select * from medecin where identifiant="'.$id.'"');
+                $data=$q->fetch(PDO::FETCH_ASSOC);
+                return $data;
+            }
         }
         public function gettotal($login)
-        {
+        {   
             $q = $this->_db->query('select * from rendezvous  where identifiant="'.$login.'" and date_rv="'.$login.'"');
             $data=$q->rowCount();
             return $data;
@@ -90,5 +100,29 @@ class Manager{
             $weekDay = date('w', strtotime($date));
             return ($weekDay == 0 || $weekDay == 6);
         }
+        public static function get(string $ch){
+            if(isset($_GET[$ch])){
+                return $_GET[$ch];
+            }
+        }
+        public function getservice(string $ser){
+            $q = $this->_db->query('select nom from service where id_service="'.$ser.'"');
+            $data=$q->fetch(PDO::FETCH_ASSOC);
+            echo $data['nom'];
+        }
+        public static function logout(){
+            $logout=self::get('logout');
+            if($logout){
+                $_SESSION['login']=0;
+            }
+        }
+        public static function set($val){
+        if(isset($val)){
+            echo $val;
+        }else{
+            echo "Message ";
+        }   
+        }
+
 }
 ?>
