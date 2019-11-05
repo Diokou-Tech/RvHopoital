@@ -37,8 +37,14 @@
     padding: 5px;  
     cursor: pointer;      
     }
+    .mess-error{
+        width: 100%;
+        background-color: orange;
+        color: white;
+    }
     .modal form input{
         width: 200px;
+        padding-left: 5px;
         appearance: none;
         outline: none;
         border: none;
@@ -49,6 +55,14 @@
     .modal p label{
         color: teal;
         margin-right: 5px;
+        min-width:50px;
+        text-align: left;
+    }
+    .modal p{
+        color: teal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .row>div{
         box-shadow:2px 2px 4px gray;

@@ -2,15 +2,14 @@
 require('connexion.php');
 class Manager{
         private $_db;  //instance de PDO
-
         public function __construct($db)
         {
             $this->setDB($db);
         } 
         public function list_rv($sec):array //recupére la liste des rendez concernant un secretaire
         {
-        $q=$this->_db->query('select * from rendezvous where matricule="'.$sec.'"');
-        $donnes=$q->fetchAll();
+        $q=$this->_db->query('select * from rendezvous where secretaire="'.$sec.'"');
+        $donnes=$q->fetchAll(PDO::FETCH_ASSOC);
         return $donnes;
         }
         public function is_valid_sec(string $login,string $pwd)// verifie l'athentification des sécretaires dans la base
@@ -25,7 +24,6 @@ class Manager{
             $data=$q->rowCount();
             return $data;
         }
-
         public function getpatient(string $id):array
         {
             $q = $this->_db->query('select * from patient where matricule="'.$id.'"');
@@ -92,7 +90,5 @@ class Manager{
             $weekDay = date('w', strtotime($date));
             return ($weekDay == 0 || $weekDay == 6);
         }
-
 }
-
 ?>

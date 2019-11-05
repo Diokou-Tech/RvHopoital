@@ -1,5 +1,6 @@
 <?php
 require('../classes/secretaire.php');
+
 if(empty($_POST)){
     Manager::redir(0);
 }
